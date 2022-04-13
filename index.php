@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
     <?php
-        Layout::getInstance()->include_font('Roboto Slab');
+        
         Layout::getInstance()->include_css();
     ?>
 </head>

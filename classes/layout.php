@@ -30,6 +30,7 @@ class Layout
 
     // подключение css файлов к странице
     public function include_css(){
+        $this->static['css'] = array_unique($this->static['css']);
         foreach ($this->static['css'] as $style){
             $path = '/static/css/'.$style;
             if( file_exists($_SERVER['DOCUMENT_ROOT'].'/static/css/'.$style) ) {
@@ -39,6 +40,7 @@ class Layout
     }
     // подключение js файлов к странице
     public function include_scripts(){
+        $this->static['js'] = array_unique($this->static['js']);
         foreach ($this->static['js'] as $script){
             $path = '/static/js/'.$script;
             if( file_exists($_SERVER['DOCUMENT_ROOT'].'/static/js/'.$script) ) {
@@ -48,11 +50,13 @@ class Layout
     }
 
     // подключение шрифта
-    public function include_font($font){
+    public function include_font(){
+        $font = Config::get_config('layout', 'font');
+        $width = Config::get_config('layout', 'width');
         $font_replace = str_replace(' ', '+', $font);
         echo "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
         <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-        <link href=\"https://fonts.googleapis.com/css2?family={$font_replace}:wght@300;500;600;700;800&display=swap\" rel=\"stylesheet\">
+        <link href=\"https://fonts.googleapis.com/css2?family={$font_replace}:wght@{$width}&display=swap\" rel=\"stylesheet\">
         <style>
             :root {
                 font-family: '{$font}', sans-serif;
@@ -78,6 +82,7 @@ class Layout
     // конструктор Одиночки всегда должен быть скрытым, чтобы предотвратить создание объекта через оператор new, задает настройки при создании экземпляра класса
     protected function __construct() {
         $this->include_bootstrap();
+        $this->include_font();
     }
    
 }

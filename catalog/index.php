@@ -31,8 +31,8 @@ $products = [
 
     <?php
     Layout::getInstance()->add_static('products.css');
+    // Layout::getInstance()->add_static('products.css'); проверка на уникальность
     Layout::getInstance()->add_static('script.js');
-    Layout::getInstance()->include_font('Roboto Slab');
     Layout::getInstance()->include_css();
     Layout::getInstance()->include_scripts();
     ?>
