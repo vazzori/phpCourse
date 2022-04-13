@@ -1,5 +1,5 @@
 <?php
-$layout_config = [
+$config_data = [
     'font' => 'Montserrat',
     'width' => [
         '300',

@@ -35,6 +35,7 @@ $products = [
     Layout::getInstance()->add_static('script.js');
     Layout::getInstance()->include_css();
     Layout::getInstance()->include_scripts();
+    
     ?>
 </head>
 
@@ -54,6 +55,12 @@ $products = [
         </div>
         <?php endforeach;?>
     </div>
+    <div class="">
+        <?php 
+            DB::getInstance()->create_table('test');
+        ?>
+    </div>
+
 </body>
 
 </html>

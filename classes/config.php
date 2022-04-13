@@ -6,22 +6,22 @@ class Config{
         if(file_exists($config)){
             include $config;
         
-            if(array_key_exists($key, $layout_config)){
+            if(array_key_exists($key, $config_data)){
                 
                 
-                if(is_array($layout_config[$key])){
+                if(is_array($config_data[$key])){
                    
                     
-                    return implode(';', $layout_config[$key]);
+                    return implode(';', $config_data[$key]);
                 }else{
                 
-                    return $layout_config[$key];
+                    return $config_data[$key];
                 }
                 
             }
             else{
                
-                return  $layout_config;
+                return  $config_data;
             }
         }
         else{
@@ -32,5 +32,3 @@ class Config{
 
     
 }
-// echo Config::get_config('layout', 'font');
-// echo Config::get_config('layout', 'width');
